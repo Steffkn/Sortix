@@ -36,12 +36,12 @@ namespace Sortix.Shuffling
         /// Shuffle an array of doubles. Reference type. O(n)
         /// </summary>
         /// <param name="array">Array to shuffle</param>
-        public void Shuffle(double[] array)
+        public void Shuffle<T>(T[] array) where T : IComparable
         {
             for (int i = array.Length - 1; i > 0; i--)
             {
                 int j = random.Next(i + 1);
-                double temp = array[j];
+                T temp = array[j];
                 array[j] = array[i];
                 array[i] = temp;
             }

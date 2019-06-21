@@ -6,9 +6,9 @@ namespace Sortix.Sorting
 {
     public class RadixSort : SortingAlgorithm
     {
-        public override void Sort(double[] array)
+        public override void Sort<T>(T[] array)
         {
-            radixsort(array);
+            //radixsort(array);
         }
 
         public static double getMax(double[] array)

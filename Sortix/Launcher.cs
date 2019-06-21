@@ -8,15 +8,15 @@ namespace Sortix
     {
         static void Main(string[] args)
         {
-            double[] array = new double[] { 1.15, 2.78, 3.785, 4.7867, 4.467, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20 };
+            var array = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20 };
             Shuffle(array);
             PrintArray(array);
-            var sortingAlgorithm = new RadixSort();
+            var sortingAlgorithm = new InsertionSort();
             sortingAlgorithm.Sort(array);
             PrintArray(array);
         }
 
-        private static void Shuffle(double[] array)
+        private static void Shuffle<T>(T[] array) where T : IComparable
         {
             var shuffler = new Shuffler(new Random());
             shuffler.Shuffle(array);
@@ -38,7 +38,7 @@ namespace Sortix
             }
         }
 
-        private static void PrintArray(double[] array)
+        private static void PrintArray<T>(T[] array)
         {
             foreach (var number in array)
             {

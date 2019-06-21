@@ -6,23 +6,23 @@ namespace Sortix.Sorting
 {
     public class MergeSort : SortingAlgorithm
     {
-        public override void Sort(double[] array)
+        public override void Sort<T>(T[] array)
         {
-            this.Sort(array, 0, array.Length - 1);
+           this.Sort(array, 0, array.Length - 1);
         }
 
         // Merges two subarrays of arr[]. 
         // First subarray is arr[l..m] 
         // Second subarray is arr[m+1..r] 
-        void Merge(double[] array, int leftIndex, int middleIndex, int rightIndex)
+        void Merge<T>(T[] array, int leftIndex, int middleIndex, int rightIndex) where T : IComparable
         {
             // Find sizes of two subarrays to be merged 
             int leftSubArraySize = middleIndex - leftIndex + 1;
             int rightSubArraySize = rightIndex - middleIndex;
 
             /* Create temp arrays */
-            double[] leftSubArray = new double[leftSubArraySize];
-            double[] rightSubArray = new double[rightSubArraySize];
+            T[] leftSubArray = new T[leftSubArraySize];
+            T[] rightSubArray = new T[rightSubArraySize];
 
             /*Copy data to temp arrays*/
             for (int x = 0; x < leftSubArraySize; ++x)
@@ -40,7 +40,7 @@ namespace Sortix.Sorting
             int k = leftIndex;
             while (i < leftSubArraySize && j < rightSubArraySize)
             {
-                if (leftSubArray[i] <= rightSubArray[j])
+                if (leftSubArray[i].CompareTo(rightSubArray[j]) < 1)
                 {
                     array[k] = leftSubArray[i];
                     i++;
@@ -70,7 +70,7 @@ namespace Sortix.Sorting
             }
         }
 
-        void Sort(double[] arr, int leftIndex, int rightIndex)
+        void Sort<T>(T[] arr, int leftIndex, int rightIndex) where T : IComparable
         {
             if (leftIndex < rightIndex)
             {

@@ -10,24 +10,22 @@
 8        A[i + 1] <- key
 */
 
+using System;
+
 namespace Sortix.Sorting
 {
     public class InsertionSort : SortingAlgorithm
     {
-        public InsertionSort()
-        {
-        }
-
-        public override void Sort(double[] array)
+        public override void Sort<T>(T[] array)
         {
             for (int j = 1; j < array.Length; j++)
             {
-                double key = array[j];
+                T key = array[j];
                 int i = j - 1;
 
                 // Move elements of arr[0..i-1], that are greater than key, 
                 // to one position ahead of their current position 
-                while (i >= 0 && array[i] > key)
+                while (i >= 0 && array[i].CompareTo(key) > 0)
                 {
                     array[i + 1] = array[i];
                     i = i - 1;
