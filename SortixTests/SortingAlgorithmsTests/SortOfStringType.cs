@@ -4,15 +4,12 @@ using SortixTests.Data;
 
 namespace SortixTests.SortingAlgorithmsTests
 {
-    public class SortOfIntType : SortOfAType
+    public class SortOfStringType : SortOfAType
     {
-        [SetUp]
-        public void Setup() { }
-
         [Test]
         [Combinatorial]
-        public void SortOfOrderedIntShouldExecuteAndReturnSortedArray(
-            [ValueSource(typeof(DataContext), nameof(DataContext.SortedIntegers))] int[] array,
+        public void SortOfOrderedStringsShouldExecuteAndReturnSortedArray(
+            [ValueSource(typeof(DataContext), nameof(DataContext.SortedStrings))] string[] array,
             [ValueSource(typeof(DataContext), nameof(DataContext.SortingAlgorithms))] SortingAlgorithm sortingAlgorithm)
         {
             this.AssertSorting(array, sortingAlgorithm);
@@ -20,8 +17,8 @@ namespace SortixTests.SortingAlgorithmsTests
 
         [Test]
         [Combinatorial]
-        public void SortOfOrderedIntWithDuplicatesShouldExecuteAndReturnSortedArray(
-            [ValueSource(typeof(DataContext), nameof(DataContext.SortedIntegersWithDiplicates))] int[] array,
+        public void SortOfOrderedStringsWithDuplicatesShouldExecuteAndReturnSortedArray(
+            [ValueSource(typeof(DataContext), nameof(DataContext.SortedStrings))] string[] array,
             [ValueSource(typeof(DataContext), nameof(DataContext.SortingAlgorithms))] SortingAlgorithm sortingAlgorithm)
         {
             this.AssertSorting(array, sortingAlgorithm);
@@ -29,8 +26,8 @@ namespace SortixTests.SortingAlgorithmsTests
 
         [Test]
         [Combinatorial]
-        public void SortOUnorderedIntShouldExecuteAndReturnSortedArray(
-            [ValueSource(typeof(DataContext), nameof(DataContext.UnorderedIntegers))] int[] array,
+        public void SortOUnorderedStringsShouldExecuteAndReturnSortedArray(
+            [ValueSource(typeof(DataContext), nameof(DataContext.UnorderedStrings))] string[] array,
             [ValueSource(typeof(DataContext), nameof(DataContext.SortingAlgorithms))] SortingAlgorithm sortingAlgorithm)
         {
             this.AssertSorting(array, sortingAlgorithm);
@@ -38,8 +35,8 @@ namespace SortixTests.SortingAlgorithmsTests
 
         [Test]
         [Combinatorial]
-        public void SortOUnorderedIntWithDuplicatesShouldExecuteAndReturnSortedArray(
-            [ValueSource(typeof(DataContext), nameof(DataContext.UnorderedIntegersWithDiplicates))] int[] array,
+        public void SortOUnorderedStringsWithDuplicatesShouldExecuteAndReturnSortedArray(
+            [ValueSource(typeof(DataContext), nameof(DataContext.UnorderedStrings))] string[] array,
             [ValueSource(typeof(DataContext), nameof(DataContext.SortingAlgorithms))] SortingAlgorithm sortingAlgorithm)
         {
             this.AssertSorting(array, sortingAlgorithm);
